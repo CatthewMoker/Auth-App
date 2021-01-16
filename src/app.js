@@ -4,18 +4,27 @@ import firebase from 'firebase';
 import {Button, Header, Spinner} from './components/common';
 import LoginForm from './components/LoginForm';
 
+import {
+  API_KEY,
+  AUTH_DOMAIN,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+  APP_ID,
+} from '@env';
+
 class App extends Component {
   state = {loggedIn: null};
 
   componentWillMount() {
     if (!firebase.apps.length) {
       firebase.initializeApp({
-        apiKey: 'AIzaSyDCoClZWdNoDM0tDHhT7xu0ppTexqYQ3vA',
-        authDomain: 'authentication-71b52.firebaseapp.com',
-        projectId: 'authentication-71b52',
-        storageBucket: 'authentication-71b52.appspot.com',
-        messagingSenderId: '195359634224',
-        appId: '1:195359634224:web:1a64211041af9f5040cef5',
+        apiKey: API_KEY,
+        authDomain: AUTH_DOMAIN,
+        projectId: PROJECT_ID,
+        storageBucket: STORAGE_BUCKET,
+        messagingSenderId: MESSAGING_SENDER_ID,
+        appId: APP_ID,
       });
     } else {
       firebase.app(); // if already initialized, use that one
